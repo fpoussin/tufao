@@ -5,12 +5,17 @@
 #-------------------------------------------------
 
 TEMPLATE = lib
-#TARGET = QtTufao
 VERSION = 1.4.4
+TARGET = QtTufao
 
 QT -= gui
 QT += websockets network
 CONFIG += c++11 debug_and_release
+
+build_pass:CONFIG(debug, debug|release) {
+    unix: TARGET = $$join(TARGET,,,_debug)
+    else: TARGET = $$join(TARGET,,,d)
+}
 
 DEFINES += TUFAO_LIBRARY
 DEFINES += BUFFER_SIZE=128

@@ -1,17 +1,4 @@
 
-QT += websockets network
-CONFIG += c++11
-
-DEFINES += TUFAO_LIBRARY
-DEFINES += BUFFER_SIZE=128
-
-#DEPENDPATH += $$PWD
-#INCLUDEPATH += $$PWD
-#VPATH += $$PWD
-
-INCLUDEPATH += ../3rd/boost.http/include C:/local/boost_1_65_1
-INCLUDEPATH += priv tests ../include
-
 SOURCES += \
     $$PWD/httpserver.cpp \
     $$PWD/httpserverrequest.cpp \
@@ -36,10 +23,7 @@ SOURCES += \
     $$PWD/classhandlermanager.cpp \
     $$PWD/classhandler.cpp
 
-
-LIBS += -LC:/local/boost_1_65_1/lib64-msvc-14.0
-
-HEADERS += \
+HEADERS_PUB += \
     $$PWD/abstracthttpserverrequesthandler.h \
     $$PWD/abstracthttpupgradehandler.h \
     $$PWD/abstractmessagesocket.h \
@@ -63,7 +47,9 @@ HEADERS += \
     $$PWD/simplesessionstore.h \
     $$PWD/tufao_global.h \
     $$PWD/urlrewriterhandler.h \
-    $$PWD/websocket.h \
+    $$PWD/websocket.h
+
+HEADERS_PRIV += \
     $$PWD/priv/asctime.h \
     $$PWD/priv/classhandlermanager.h \
     $$PWD/priv/cryptography.h \
@@ -84,3 +70,5 @@ HEADERS += \
     $$PWD/priv/tcpserverwrapper.h \
     $$PWD/priv/urlrewriterhandler.h \
     $$PWD/priv/websocket.h
+
+HEADERS += $$HEADERS_PRIV $$HEADERS_PUB

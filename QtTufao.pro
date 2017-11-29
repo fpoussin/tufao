@@ -28,7 +28,7 @@ LIBS += -LC:/local/boost_1_65_1/lib64-msvc-14.0
 include(src/src.pri)
 include(include/include.pri)
 
-headersDataFiles.path = $$[QT_INSTALL_HEADERS]/$$TARGET/
+headersDataFiles.path = $$[QT_INSTALL_HEADERS]/QtTufao/
 headersDataFiles.files = $$HEADERS_PUB $$INC_HEADERS_PUB
 INSTALLS += headersDataFiles
 

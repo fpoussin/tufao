@@ -18,10 +18,11 @@ build_pass:CONFIG(debug, debug|release) {
 DEFINES += TUFAO_LIBRARY
 DEFINES += BUFFER_SIZE=128
 
-INCLUDEPATH += 3rd/boost.http/include C:/local/boost_1_65_1
-INCLUDEPATH += src src/priv src/tests include
+INCLUDEPATH += $$PWD/3rd/boost.http/include
+INCLUDEPATH += $$PWD/src $$PWD/src/priv $$PWD/src/tests $$PWD/include
 
-LIBS += -LC:/local/boost_1_65_1/lib64-msvc-14.0
+windows:INCLUDEPATH += C:/local/boost_1_65_1
+windows:LIBS += -LC:/local/boost_1_65_1/lib64-msvc-14.0
 
 include(src/src.pri)
 include(include/include.pri)
@@ -44,8 +45,8 @@ CONFIG(release, debug|release):libraryFiles.files = $$OUT_PWD/release/*.a $$OUT_
 INSTALLS += libraryFiles
 
 binFiles.path = $$[QT_INSTALL_BINS]
-CONFIG(debug, debug|release):binFiles.files = $$OUT_PWD/debug/*.so $$OUT_PWD/debug/*.dll
-CONFIG(release, debug|release):binFiles.files = $$OUT_PWD/release/*.so $$OUT_PWD/release/*.dll
+CONFIG(debug, debug|release):binFiles.files = $$OUT_PWD/debug/*.so* $$OUT_PWD/debug/*.dll
+CONFIG(release, debug|release):binFiles.files = $$OUT_PWD/release/*.so* $$OUT_PWD/release/*.dll
 INSTALLS += binFiles
 
 featureFiles.path = $$[QT_INSTALL_DATA]/mkspecs/features

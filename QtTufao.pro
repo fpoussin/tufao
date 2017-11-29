@@ -40,15 +40,16 @@ headersPriv2Files.files = $$HEADERS_PRIV
 INSTALLS += headersPriv2Files
 
 libraryFiles.path = $$[QT_INSTALL_LIBS]
-CONFIG(debug, debug|release):libraryFiles.files = $$OUT_PWD/debug/*.a $$OUT_PWD/debug/*.lib $$OUT_PWD/debug/*.prl
-CONFIG(release, debug|release):libraryFiles.files = $$OUT_PWD/release/*.a $$OUT_PWD/release/*.lib $$OUT_PWD/release/*.prl
+CONFIG(debug, debug|release):libraryFiles.files = $$OUT_PWD/debug/*.a $$OUT_PWD/debug/*.lib $$OUT_PWD/debug/*.prl $$OUT_PWD/debug/*.so*
+CONFIG(release, debug|release):libraryFiles.files = $$OUT_PWD/release/*.a $$OUT_PWD/release/*.lib $$OUT_PWD/release/*.prl $$OUT_PWD/release/*.so*
 INSTALLS += libraryFiles
 
 binFiles.path = $$[QT_INSTALL_BINS]
-CONFIG(debug, debug|release):binFiles.files = $$OUT_PWD/debug/*.so* $$OUT_PWD/debug/*.dll
-CONFIG(release, debug|release):binFiles.files = $$OUT_PWD/release/*.so* $$OUT_PWD/release/*.dll
+CONFIG(debug, debug|release):binFiles.files = $$OUT_PWD/debug/*.dll
+CONFIG(release, debug|release):binFiles.files = $$OUT_PWD/release/*.dll
 INSTALLS += binFiles
 
 featureFiles.path = $$[QT_INSTALL_DATA]/mkspecs/features
-featureFiles.files = tufao1.prf
+featureFiles.files = tufao1.prf tufao1-static.prf
 INSTALLS += featureFiles
+

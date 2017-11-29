@@ -1,0 +1,7 @@
+QT += network
+
+DEFINES += TUFAO_VERSION_MAJOR=1
+INCLUDEPATH += $$[QT_INSTALL_HEADERS]/QtTufao/ $$[QT_INSTALL_HEADERS]/QtTufao/1.4.4/QtTufao $$[QT_INSTALL_HEADERS]/QtTufao/1.4.4/QtTufao/private
+
+CONFIG(debug, debug|release): LIBS += -lQtTufao1d
+CONFIG(release, debug|release): LIBS += -lQtTufao1

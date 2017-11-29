@@ -20,7 +20,7 @@ set(tufao_SRC
     notfoundhandler.cpp
     urlrewriterhandler.cpp
     httpupgraderouter.cpp
-	 classhandlermanager.cpp
+    classhandlermanager.cpp
     classhandler.cpp
 )
 
